@@ -34,7 +34,7 @@ public class AnnotationConfigApplicationContext {
         scan(config);
     }
 
-    private Object createBean(String beanName, BeanDefinition beanDefinition) {
+    public Object createBean(String beanName, BeanDefinition beanDefinition) {
         Class clazz = beanDefinition.getType();
         Object instance = null;
         try {
@@ -70,7 +70,7 @@ public class AnnotationConfigApplicationContext {
         return instance;
     }
 
-    private Object getBean(String beanName) {
+    public Object getBean(String beanName) {
         if (!beanDefinitionMap.containsKey(beanName)) {
             throw new RuntimeException("No available bean found!");
         }
